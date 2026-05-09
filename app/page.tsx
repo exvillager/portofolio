@@ -53,7 +53,7 @@ export default function Home() {
       className="pb-24"
     >
       {/* ── Hero ── */}
-      <section className="min-h-[90vh] flex flex-col justify-center py-12">
+      <section className="flex flex-col py-12">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-10">
           {/* Text block */}
           <div className="flex flex-col gap-7 order-2 sm:order-1 max-w-lg">
@@ -67,7 +67,7 @@ export default function Home() {
               }}
             >
               <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              Software Engineer @ Docxster
+              Software Engineer @Docxster
             </div>
 
             {/* Name + role */}
@@ -85,7 +85,7 @@ export default function Home() {
 
             <p
               className="text-sm sm:text-base leading-relaxed"
-              style={{ color: "#888" }}
+              style={{ color: "#aaa" }}
             >
               I build software that developers actually use — web frameworks,
               CLI tools, and full-stack apps. Exploring system design along the
@@ -140,30 +140,14 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Scroll hint */}
-        <div className="flex justify-center mt-16">
-          <div
-            className="flex flex-col items-center gap-2"
-            style={{ color: "rgba(74,222,128,0.22)" }}
-          >
-            <div
-              className="w-px h-10"
-              style={{
-                background:
-                  "linear-gradient(to bottom, rgba(74,222,128,0.45), transparent)",
-              }}
-            />
-            <span className="text-xs tracking-[0.22em] uppercase">scroll</span>
-          </div>
-        </div>
       </section>
 
       {/* ── Experience ── */}
-      <section className="py-10">
+      <section className="py-6">
         <p className="section-label">Experience</p>
         <div className="flex flex-col gap-3">
           {experience.map((exp: Experience) => (
-            <div key={exp.company} className="flex gap-4">
+            <div key={exp.role} className="flex gap-4">
               {/* Timeline indicator */}
               <div className="flex flex-col items-center pt-5 flex-shrink-0">
                 <div
@@ -189,24 +173,34 @@ export default function Home() {
                 target="_blank"
                 className="group flex-1 block rounded-xl p-5 glass-card-green mb-2"
               >
-                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-2">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 mb-3">
                   <h3 className="font-semibold text-white group-hover:text-emerald-300 transition-colors">
                     {exp.company}
                   </h3>
-                  <span style={{ color: "#444" }} className="text-xs">
-                    ·
+                  <span
+                    className="text-xs px-2 py-0.5 rounded-full font-medium"
+                    style={{
+                      background:
+                        exp.type === "Full-time"
+                          ? "rgba(74,222,128,0.1)"
+                          : "rgba(255,255,255,0.06)",
+                      border:
+                        exp.type === "Full-time"
+                          ? "1px solid rgba(74,222,128,0.25)"
+                          : "1px solid rgba(255,255,255,0.1)",
+                      color: exp.type === "Full-time" ? "#86efac" : "#aaa",
+                    }}
+                  >
+                    {exp.type}
                   </span>
-                  <span className="text-sm" style={{ color: "#888" }}>
+                  <span className="text-sm font-medium" style={{ color: "#bbb" }}>
                     {exp.role}
                   </span>
-                  <span className="text-xs sm:ml-auto" style={{ color: "#555" }}>
+                  <span className="text-xs sm:ml-auto" style={{ color: "#666" }}>
                     {exp.duration}
                   </span>
                 </div>
-                <p
-                  className="text-sm leading-relaxed"
-                  style={{ color: "#777" }}
-                >
+                <p className="text-sm leading-relaxed" style={{ color: "#999" }}>
                   {exp.info}
                 </p>
               </Link>
@@ -216,14 +210,14 @@ export default function Home() {
       </section>
 
       {/* ── Skills ── */}
-      <section className="py-10">
+      <section className="py-6">
         <p className="section-label">Skills</p>
         <div className="flex flex-col gap-6">
           {categorizedSkills.map((cat) => (
             <div key={cat.title}>
               <p
                 className="text-xs mb-3 tracking-wide font-medium"
-                style={{ color: "#555" }}
+                style={{ color: "#777" }}
               >
                 {cat.title}
               </p>
@@ -232,7 +226,7 @@ export default function Home() {
                   <span
                     key={skill}
                     className="px-3 py-1 rounded-full text-xs pill"
-                    style={{ color: "#999" }}
+                    style={{ color: "#bbb" }}
                   >
                     {skill}
                   </span>
@@ -244,7 +238,7 @@ export default function Home() {
       </section>
 
       {/* ── Projects ── */}
-      <section className="py-10">
+      <section className="py-6">
         <p className="section-label">Projects</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {projects.slice(0, 4).map((project) => (

@@ -1,7 +1,7 @@
 export type Project = {
     title: string,
     description: string,
-    imgPath: string
+    imgPath?: string
     techs: string[],
     githubLink?: string,
     liveLink?: string,
@@ -10,11 +10,34 @@ export type Project = {
 
 export const projects: Project[] = [
     {
+        title: "Diesel.js",
+        description: "A web framework built using Bun.js – similar to Express, but with more advanced features.",
+        imgPath: "/project-images/diesel.png",
+        techs: ["Bun.js", "TypeScript", "Web Framework"],
+        githubLink: process.env.NEXT_PUBLIC_DIESEL_GITHUB!,
+        liveLink: process.env.NEXT_PUBLIC_DIESEL_LIVE!,
+        status: 'online'
+    },
+    {
+        title: "nanoserve",
+        description: "A lightweight HTTP router written in Go with built-in middleware support.",
+        techs: ["Go", "HTTP", "Router", "Middleware"],
+        githubLink: "https://github.com/exvillager/nanoserve",
+        status: 'online'
+    },
+    {
+        title: "envy",
+        description: "Securely store and sync .env files across machines using Cloudflare R2 with client-side encryption.",
+        techs: ["Go", "CLI", "Cloudflare R2", "Encryption"],
+        githubLink: "https://github.com/exvillager/envy",
+        status: 'online'
+    },
+    {
         title: "OpenFile",
         description: "OpenFile is a secure and ecnrypted file reciever/sharing service. with help of openfile you can generate a link and share to any anonymous person and that person can send you files anonymously.",
         imgPath: "/project-images/openfile.png",
         techs: ["Bun.js", "React", "SQL"],
-        githubLink: "",
+        githubLink: "https://github.com/exvillager/openfile.in",
         liveLink: process.env.NEXT_PUBLIC_OPENFILE_LIVE!,
         status: 'online'
     },
@@ -25,15 +48,6 @@ export const projects: Project[] = [
         techs: ["ReactJS", "ExpressJS", "MongoDB", "TailwindCSS", "JWT", "Multer", "Cloudinary"],
         githubLink: process.env.NEXT_PUBLIC_DEVTUBE_GITHUB!,
         liveLink: process.env.NEXT_PUBLIC_DEVTUBE_LIVE!,
-        status: 'online'
-    },
-    {
-        title: "Diesel.js",
-        description: "A web framework built using Bun.js – similar to Express, but with more advanced features.",
-        imgPath: "/project-images/diesel.png",
-        techs: ["Bun.js", "TypeScript", "Web Framework"],
-        githubLink: process.env.NEXT_PUBLIC_DIESEL_GITHUB!,
-        liveLink: process.env.NEXT_PUBLIC_DIESEL_LIVE!,
         status: 'online'
     },
     {

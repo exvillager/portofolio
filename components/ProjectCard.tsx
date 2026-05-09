@@ -13,13 +13,30 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     <div className="rounded-xl overflow-hidden flex flex-col group glass-card">
       {/* Image */}
       <div className="relative overflow-hidden" style={{ height: "180px" }}>
-        <Image
-          src={project.imgPath}
-          width={400}
-          height={180}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-          alt={project.title}
-        />
+        {project.imgPath ? (
+          <Image
+            src={project.imgPath}
+            width={400}
+            height={180}
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            alt={project.title}
+          />
+        ) : (
+          <div
+            className="w-full h-full flex items-center justify-center"
+            style={{
+              background:
+                "linear-gradient(135deg, #0f1a0f 0%, #0a120a 50%, #0d1a12 100%)",
+            }}
+          >
+            <span
+              className="text-4xl font-bold tracking-tight select-none"
+              style={{ color: "rgba(74,222,128,0.15)" }}
+            >
+              {project.title}
+            </span>
+          </div>
+        )}
         {/* Gradient overlay */}
         <div
           className="absolute inset-0"
